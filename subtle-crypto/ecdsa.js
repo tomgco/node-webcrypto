@@ -8,5 +8,14 @@ module.exports = {
     Symbol.for('generateKey'),
     Symbol.for('importKey'),
     Symbol.for('exportKey'),
-  ]
+  ],
+  sign(key, data, cb) {
+
+  },
+  verify(key, sig, data, cb) {
+
+  },
+  generateKey(extractable, keyUsages, cb) {
+
+  }
 };

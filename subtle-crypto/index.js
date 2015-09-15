@@ -37,66 +37,29 @@ let SubtleCrypto = module.exports = class SubtleCrypto {
       if (err) return cb(err);
       operation();
     });
-
   }
   decrypt(algorithm, key, data, cb) {
   }
-  sign(algorithm,
-       key,
-       data,
-       cb) {
+  sign(algorithm, key, data, cb) {
   }
-  verify(algorithm,
-         key,
-         signature,
-         data,
-         cb) {
+  verify(algorithm, key, signature, data, cb) {
   }
-  digest(algorithm,
-         data,
-         cb) {
+  digest(algorithm, data, cb) {
   }
-  generateKey(algorithm,
-             extractable,
-             keyUsages,
-             cb) {
+  generateKey(algorithm, extractable, keyUsages, cb) {
   }
-  deriveKey(algorithm,
-            baseKey,
-            derivedKeyType,
-            extractable,
-            keyUsages,
-            cb) {
+  deriveKey(algorithm, baseKey, derivedKeyType, extractable, keyUsages, cb) {
   }
-  deriveBits(algorithm,
-             baseKey,
-             length,
-             cb) {
+  deriveBits(algorithm, baseKey, length, cb) {
   }
-  importKey(format,
-            keyData,
-            algorithm,
-            extractable,
-            keyUsages,
-            cb) {
+  importKey(format, keyData, algorithm, extractable, keyUsages, cb) {
   }
   exportKey(format, key, cb) {
+   }
+  wrapKey(format, key, wrappingKey, wrapAlgorithm, cb) {
   }
-  wrapKey(format,
-          key,
-          wrappingKey,
-          wrapAlgorithm,
-          cb) {
-  }
-  unwrapKey(format,
-            wrappedKey,
-            unwrappingKey,
-            unwrapAlgorithm,
-            unwrappedKeyAlgorithm,
-            extractable,
-            keyUsages,
-            cb) {
-
+  unwrapKey(format, wrappedKey, unwrappingKey, unwrapAlgorithm,
+            unwrappedKeyAlgorithm, extractable, keyUsages, cb) {
   }
 };
 
