@@ -2,18 +2,24 @@
 
 let crypto = require('../');
 
-let privateKey = '';
-let data = '';
+crypto.subtle.generateKey({ name: 'ECDSA', namedCurve: 'P-256'}, false, ['sign'], (err, key) => {
+  if (err) throw err;
 
-crypto.subtle.sign(
-  {
-    name: 'ECDSA',
-    hash: {name: 'SHA-256'},
-  },
-  privateKey, //from generateKey or importKey above
-  data, //ArrayBuffer of data you want to sign
-  (err, signature) => {
-    if (err) throw err;
-    console.log(new Uint8Array(signature));
-  }
-);
+  let data = new Buffer('Hello, world.');
+  let privateKey = key.privateKey;
+
+  crypto.subtle.sign(
+    {
+      name: 'ECDSA',
+      namedCurve: 'P-256',
+      hash: {name: 'SHA-256'},
+    },
+    privateKey, //from generateKey or importKey above
+    data, //ArrayBuffer of data you want to sign
+    (err, signature) => {
+      if (err) throw err;
+      console.log(new Uint8Array(signature));
+    }
+  );
+
+});
