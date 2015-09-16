@@ -31,7 +31,13 @@ module.exports = {
   verify(key, sig, data, cb) {
 
   },
-  generateKey(algorithm, extractable, keyUsages, cb) {
-    return cb(new NotSupportedError('Not Implemented'));
+  generateKey(algorithm, extractable, usages, cb) {
+    console.log(usages);
+    if (usages && Array.isArray(usages)) {
+      if (usages.indexOf('verify') != -1 || usages.indexOf('sign') != -1) {
+        return
+      }
+    }
+    return cb(new Error('Usages must be an array containing sign or verify'));
   }
 };
